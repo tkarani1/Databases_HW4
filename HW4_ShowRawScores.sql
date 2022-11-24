@@ -33,6 +33,8 @@ BEGIN
                      @sql,
                      ' FROM HW4_RawScore WHERE sid = ',
 		     '?');
+    
+    SET @sql = CONCAT('SELECT * FROM HW4_Student JOIN (', @sql, ') WHERE sid = ', '?')
 
    -- alert the server we have a statement shell to set up
    PREPARE stmt FROM @sql;
