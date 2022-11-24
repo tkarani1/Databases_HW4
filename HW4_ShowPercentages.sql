@@ -62,4 +62,4 @@ BEGIN
    
 
 END; //
-DELIMETER;
+DELIMITER;
