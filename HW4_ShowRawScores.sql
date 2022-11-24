@@ -29,21 +29,28 @@ BEGIN
    -- concatenate the assignment name list and associated expressions
    -- into a larger query string so we can execute it, but leave ?
    -- in place so we can plug in the specific sid value in a careful way
-   SET @sql = CONCAT('SELECT sid, ',
+    SET @sql = CONCAT('SELECT ',
                      @sql,
                      ' FROM HW4_RawScore WHERE sid = ',
 		     '?');
-    
-    SET @sql = CONCAT('SELECT * FROM HW4_Student JOIN (', @sql, ') WHERE sid = ', '?')
 
+   SET @sql = CONCAT('WITH SInfo AS (SELECT sid, LName, FName, Sec
+                  FROM HW4_Student WHERE sid = ?),',
+                  'SScores AS (', @sql, ')',
+                  'SELECT * FROM SInfo JOIN SScores');
    -- alert the server we have a statement shell to set up
    PREPARE stmt FROM @sql;
 
    -- now execute the statement shell with a value plugged in for the ?
-   EXECUTE stmt USING sid;
+   EXECUTE stmt USING sid, sid;
 
    -- tear down the prepared shell since no longer needed (we won't requery it)
    DEALLOCATE PREPARE stmt;
+
+    -- this is another way to structure the query
+    -- SELECT LName, FName, Sec, HW4_RawScore.sid, max(case when aname = 'quiz1' then score end) as 'quiz1'
+    --        FROM HW4_RawScore JOIN HW4_Student ON HW4_RawScore.sid = HW4_Student.sid
+    --        WHERE HW4_RawScore.sid = @sid
 
 END; //
 
