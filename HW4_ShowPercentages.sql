@@ -3,7 +3,7 @@
 
 DROP PROCEDURE IF EXISTS ShowPercentages; 
 
-DELIMETER // 
+DELIMITER // 
 
 CREATE PROCEDURE ShowPercentages(IN sid VARCHAR(10))
 
