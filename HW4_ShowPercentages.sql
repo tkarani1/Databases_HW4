@@ -33,7 +33,7 @@ BEGIN
         WHERE HW4_RawScore.sid = ?),
 
         SAvgs AS (SELECT sid, AType,
-                SUM(Score) / SUM(PtsPoss) AS QEAvg,
+                SUM(Score) / SUM(PtsPoss) AS QEAvg
                 FROM HW4_Assignment JOIN HW4_RawScore ON HW4_Assignment.AName = HW4_RawScore.AName
                 GROUP BY HW4_RawScore.sid, HW4_Assignment.AType), 
 
