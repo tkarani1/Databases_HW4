@@ -52,8 +52,8 @@ BEGIN
             -- SELECT LName, FName, Sec, HW4_RawScore.sid, max(case when aname = 'quiz1' then score end) as 'quiz1'
             --        FROM HW4_RawScore JOIN HW4_Student ON HW4_RawScore.sid = HW4_Student.sid
             --        WHERE HW4_RawScore.sid = @sid
-    ELSE 
-        SELECT 'SID ERR';
+ --   ELSE 
+--      SELECT 'SID ERR';
     END IF;
 
 END; //
