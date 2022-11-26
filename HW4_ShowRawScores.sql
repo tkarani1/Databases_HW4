@@ -7,10 +7,10 @@ DELIMITER //
 
 -- construct a one-row table of asssignment scores for a specified student
 -- assignments for which a student has no grade are null values in the result
-CREATE PROCEDURE ShowRawScores(IN sid VARCHAR(10))
+CREATE PROCEDURE ShowRawScores(IN this_sid VARCHAR(10))
 
 BEGIN
-    IF (SELECT COUNT(buyerNum) FROM Bid WHERE itemID = item > 0) THEN
+    IF (SELECT COUNT(SID) FROM HW4_Student WHERE SID = this_sid > 0) THEN
         SET @sql = NULL;
 
         -- accumulate into the variable named @sql a list of assignment names
@@ -43,7 +43,7 @@ BEGIN
         PREPARE stmt FROM @sql;
 
         -- now execute the statement shell with a value plugged in for the ?
-        EXECUTE stmt USING sid, sid;
+        EXECUTE stmt USING this_sid, this_sid;
 
         -- tear down the prepared shell since no longer needed (we won't requery it)
         DEALLOCATE PREPARE stmt;
