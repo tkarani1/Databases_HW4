@@ -32,12 +32,13 @@ BEGIN
    FROM HW4_Assignment;
  
    
-   SET @sql2 = CONCAT('
+   SET @sql = CONCAT('
         WITH 
-        AllScores AS (SELECT SID, ' , @assigns, '
-               FROM HW4_RawScore)
+        AllScores AS (SELECT sid, ' , @assigns,  '
+               FROM HW4_RawScore 
+               GROUP BY sid)
         
-        SELECT HW4_Student.SID AS SID, LName, FName, Sec, ',  @assign_name , '
+        SELECT HW4_Student.SID AS SID, LName, FName, Sec, ', @assign_name, '
         FROM HW4_Student JOIN AllScores ON HW4_Student.sid = AllScores.sid'
         );
   
