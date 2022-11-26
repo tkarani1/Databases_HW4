@@ -39,7 +39,8 @@ BEGIN
                GROUP BY sid)
         
         SELECT HW4_Student.SID AS SID, LName, FName, Sec, ', @assign_name, '
-        FROM HW4_Student JOIN AllScores ON HW4_Student.sid = AllScores.sid'
+        FROM HW4_Student JOIN AllScores ON HW4_Student.sid = AllScores.sid
+        ORDER BY Sec, LName, FName ASC'
         );
   
     PREPARE stmt FROM @sql;
