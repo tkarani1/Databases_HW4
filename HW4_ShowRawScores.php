@@ -14,12 +14,11 @@
 
     // proceed with query only if supplied SID is non-empty
 	if (!empty($item)) {
-	   echo $item;
 	   echo "<br><br>";
 
        // call the stored procedure we already defined on dbase
 	   if ($result = $conn->query("CALL ShowRawScores('".$item."');")) {
-
+		  echo $result;
 	      echo "<table border=\"2px solid black\">";
 
           // output a row of table headers
