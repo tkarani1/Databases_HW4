@@ -10,15 +10,18 @@
 
 	// echo some basic header info onto the page
 	echo "<h2>Student ID Raw Scores</h2><br>";
-	echo "SID: ";
 
     // proceed with query only if supplied SID is non-empty
 	if (!empty($item)) {
+	echo "SID: ";
+	    echo $item;
 	   echo "<br><br>";
 
        // call the stored procedure we already defined on dbase
-	   if ($result = $conn->query("CALL ShowRawScores('".$item."');")) {
-		  echo $result;
+	$result = $conn->query("CALL ShowRawScores('".$item."');");
+
+//	   if ($result = $conn->query("CALL ShowRawScores('".$item."');")) {
+	    if (($result) && ($result->num_rows != 0)) {
 	      echo "<table border=\"2px solid black\">";
 
           // output a row of table headers
@@ -48,7 +51,7 @@
           } else {
 			echo "ERROR: SID ";
 			echo $item; 
-			echo "not found<br>";
+			echo " not found<br>";
            //  echo "Call to ShowRawScores failed<br>";  OKAY TO REPLACE?  
 	  }   
    }
