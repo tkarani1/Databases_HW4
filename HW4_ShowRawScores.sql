@@ -1,13 +1,13 @@
 -- ShowRawScores.sql
 -- Reports table of an SID's raw scores
 
-DROP PROCEDURE IF EXISTS ShowRawScores;
+DROP PROCEDURE IF EXISTS HW4_ShowRawScores;
 
 DELIMITER //
 
 -- construct a one-row table of asssignment scores for a specified student
 -- assignments for which a student has no grade are null values in the result
-CREATE PROCEDURE ShowRawScores(IN this_sid VARCHAR(10))
+CREATE PROCEDURE HW4_ShowRawScores(IN this_sid VARCHAR(10))
 
 BEGIN
     IF (SELECT COUNT(SID) FROM HW4_Student WHERE SID = this_sid > 0) THEN

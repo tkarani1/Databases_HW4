@@ -1,9 +1,9 @@
 
-DROP PROCEDURE IF EXISTS AllCourseAverages;
+DROP PROCEDURE IF EXISTS HW4_AllCourseAverages;
 
 DELIMITER //
 
-CREATE PROCEDURE AllCourseAverages(IN pw VARCHAR(15))
+CREATE PROCEDURE HW4_AllCourseAverages(IN pw VARCHAR(15))
 
 BEGIN
 IF (SELECT COUNT(CurPasswords) FROM HW4_Password WHERE CurPasswords = pw > 0) THEN

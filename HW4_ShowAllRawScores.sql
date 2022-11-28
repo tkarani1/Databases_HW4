@@ -1,11 +1,11 @@
 
-DROP PROCEDURE IF EXISTS AllRawScores;
+DROP PROCEDURE IF EXISTS HW4_AllRawScores;
 
 DELIMITER //
 
 -- construct a one-row table of asssignment scores for a specified student
 -- assignments for which a student has no grade are null values in the result
-CREATE PROCEDURE AllRawScores(IN pw VARCHAR(15))
+CREATE PROCEDURE HW4_AllRawScores(IN pw VARCHAR(15))
 
 BEGIN
 IF (SELECT COUNT(CurPasswords) FROM HW4_Password WHERE CurPasswords = pw > 0) THEN 

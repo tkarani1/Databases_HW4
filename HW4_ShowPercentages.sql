@@ -1,11 +1,11 @@
 -- ShowPercentages.sql
 -- Reports table of SID's percentages and course average
 
-DROP PROCEDURE IF EXISTS ShowPercentages; 
+DROP PROCEDURE IF EXISTS HW4_ShowPercentages; 
 
 DELIMITER // 
 
-CREATE PROCEDURE ShowPercentages(IN this_sid VARCHAR(10))
+CREATE PROCEDURE HW4_ShowPercentages(IN this_sid VARCHAR(10))
 
 BEGIN
 IF (SELECT COUNT(SID) FROM HW4_Student WHERE SID = this_sid > 0) THEN

@@ -15,7 +15,7 @@
 	if (!empty($item)) {
 
        // call the stored procedure we already defined on dbase
-	$result = $conn->query("CALL AllRawScores('".$item."');");
+	$result = $conn->query("CALL HW4_AllRawScores('".$item."');");
 
 //	   if ($result = $conn->query("CALL ShowRawScores('".$item."');")) {
 	    if (($result) && ($result->num_rows != 0)) {
