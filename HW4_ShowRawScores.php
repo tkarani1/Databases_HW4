@@ -53,9 +53,10 @@
 			echo $item; 
 			echo " not found<br>";
 	  }   
-   }// else {
-//	echo "Call to ShowRawScores failed<br>";  OKAY TO REPLACE?  
-// }
+   } 
+   else {
+	echo "Call to ShowRawScores failed<br>";  
+ }
 
    // close the connection opened by open.php
    $conn->close();

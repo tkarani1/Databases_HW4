@@ -46,11 +46,11 @@
 	      echo "</table>";
 
           } else {
-			echo "ERROR: Invalid password"; 
+			echo "ERROR: Invalid password<br>"; 
 	  }   
-   }// else {
-//	echo "Call to ShowRawScores failed<br>";  OKAY TO REPLACE?  
-// }
+   } else {
+	echo "Call to ShowRawScores failed<br>";  
+ }
 
    // close the connection opened by open.php
    $conn->close();

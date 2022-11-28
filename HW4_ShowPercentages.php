@@ -1,4 +1,4 @@
-<head><title>Raw Score</title></head>
+<head><title>Percentages</title></head>
 <body>
 <?php
 
@@ -9,7 +9,7 @@
 	$item = $_POST['SID'];
 
 	// echo some basic header info onto the page
-	echo "<h2>Student ID Raw Scores</h2><br>";
+	echo "<h2>Student ID Percentages</h2><br>";
 
     // proceed with query only if supplied SID is non-empty
 	if (!empty($item)) {
@@ -53,9 +53,9 @@
 			echo $item; 
 			echo " not found<br>";
 	  }   
-   }  // else {
-//	 echo "Call to ShowPercentages failed<br>";  OKAY TO REPLACE?  
-// }
+   }   else {
+	 echo "Call to ShowPercentages failed<br>";  
+ }
    // close the connection opened by open.php
    $conn->close();
 ?>
