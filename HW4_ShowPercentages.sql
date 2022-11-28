@@ -5,9 +5,10 @@ DROP PROCEDURE IF EXISTS ShowPercentages;
 
 DELIMITER // 
 
-CREATE PROCEDURE ShowPercentages(IN sid VARCHAR(10))
+CREATE PROCEDURE ShowPercentages(IN this_sid VARCHAR(10))
 
 BEGIN
+IF (SELECT COUNT(SID) FROM HW4_Student WHERE SID = this_sid > 0) THEN
  SET @assigns = NULL;
  SET @sql = NULL;
  
@@ -66,11 +67,11 @@ BEGIN
   PREPARE stmt FROM @sql;
 
    -- now execute the statement shell with a value plugged in for the ?
-   EXECUTE stmt USING sid, sid, sid;
+   EXECUTE stmt USING this_sid, this_sid, this_sid;
 
    -- tear down the prepared shell since no longer needed (we won't requery it)
    DEALLOCATE PREPARE stmt;
-   
+   END IF;
 
 END; //
 DELIMITER ;

@@ -1,4 +1,4 @@
-<head><title>Raw Score</title></head>
+<head><title>All Raw Score</title></head>
 <body>
 <?php
 
@@ -6,19 +6,16 @@
 	include 'open.php';
 
 	// collect the posted value in a variable called $item
-	$item = $_POST['SID'];
+	$item = $_POST['password'];
 
 	// echo some basic header info onto the page
-	echo "<h2>Student ID Raw Scores</h2><br>";
+	echo "<h2>All Students Raw Scores</h2><br>";
 
     // proceed with query only if supplied SID is non-empty
 	if (!empty($item)) {
-	echo "SID: ";
-	    echo $item;
-	   echo "<br><br>";
 
        // call the stored procedure we already defined on dbase
-	$result = $conn->query("CALL ShowRawScores('".$item."');");
+	$result = $conn->query("CALL AllRawScores('".$item."');");
 
 //	   if ($result = $conn->query("CALL ShowRawScores('".$item."');")) {
 	    if (($result) && ($result->num_rows != 0)) {
@@ -49,9 +46,7 @@
 	      echo "</table>";
 
           } else {
-			echo "ERROR: SID ";
-			echo $item; 
-			echo " not found<br>";
+			echo "ERROR: Invalid password"; 
 	  }   
    }// else {
 //	echo "Call to ShowRawScores failed<br>";  OKAY TO REPLACE?  

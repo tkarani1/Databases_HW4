@@ -18,7 +18,7 @@
 	   echo "<br><br>";
 
        // call the stored procedure we already defined on dbase
-	$result = $conn->query("CALL ShowRawScores('".$item."');");
+	$result = $conn->query("CALL ShowPercentages('".$item."');");
 
 //	   if ($result = $conn->query("CALL ShowRawScores('".$item."');")) {
 	    if (($result) && ($result->num_rows != 0)) {
@@ -53,10 +53,9 @@
 			echo $item; 
 			echo " not found<br>";
 	  }   
-   }// else {
-//	echo "Call to ShowRawScores failed<br>";  OKAY TO REPLACE?  
+   }  // else {
+//	 echo "Call to ShowPercentages failed<br>";  OKAY TO REPLACE?  
 // }
-
    // close the connection opened by open.php
    $conn->close();
 ?>
